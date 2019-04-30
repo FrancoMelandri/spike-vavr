@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import io.vavr.control.Either;
+import io.vavr.*;
 
 public class EitherTest 
 {
@@ -39,6 +40,17 @@ public class EitherTest
     public void ShouldGetRight()
     {
         String either = get(90).fold(s -> s, i -> i.toString());
+        assertEquals( "90", either );
+    }
+
+    @Test
+    public void ShouldGetRightWithFunctio()
+    {
+        Function1<Integer, Either<String, Integer>> getEither = (i) -> {
+            if (i < 80) return Either.left("Wrong value");
+            return Either.right(i);
+        };
+        String either = getEither.apply(90).fold(s -> s, i -> i.toString());
         assertEquals( "90", either );
     }
 }
