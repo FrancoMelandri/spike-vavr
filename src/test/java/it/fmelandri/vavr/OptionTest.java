@@ -12,7 +12,7 @@ public class OptionTest
     public void ShouldNotmapItemIfNone()
     {
         Option<String> optional = Option.of(null);
-        optional.map(value -> {assertTrue(false); return value; });
+        optional.map(value -> { assertTrue(false); return value; });
         assertTrue( true );
     }
 
@@ -20,7 +20,7 @@ public class OptionTest
     public void ShouldmapItemIfSome()
     {
         Option<String> optional = Option.of("some");
-        optional.map(value -> {assertEquals("some", value); return value; });
+        optional.map(value -> { assertEquals("some", value); return value; });
         assertTrue( true );
     }
 

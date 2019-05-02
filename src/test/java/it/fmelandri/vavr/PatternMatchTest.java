@@ -39,7 +39,7 @@ public class PatternMatchTest
         Option<String> output = Match(input).option(
             Case($(1), "one"),
             Case($(2), "two"),
-            Case($(), i -> Option.none().toString())
+            Case($(), i -> Option.none().toString())            
         );
         assertEquals("None", output.getOrElse("None"));
     }
